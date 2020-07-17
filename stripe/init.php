@@ -231,5 +231,7 @@ require __DIR__ . '/lib/Service/OAuthService.php';
 require __DIR__ . '/lib/Webhook.php';
 require __DIR__ . '/lib/WebhookSignature.php';
 
-\Stripe\Stripe::setApiKey('sk_test_51H10TRDfu10vZBAPmdkoC5lCp3jo5f9hPFRmHfM6dEKQvMtcd8Ct4whgdeVAcEMSsbWsYZrKwgBtbzcqmHXMmaAy00LJKPOUb8');
+$sk = 'sk_test_51H10TRDfu10vZBAPmdkoC5lCp3jo5f9hPFRmHfM6dEKQvMtcd8Ct4whgdeVAcEMSsbWsYZrKwgBtbzcqmHXMmaAy00LJKPOUb8';
+
+\Stripe\Stripe::setApiKey($sk);
         
