@@ -7,11 +7,13 @@
     $post = $_POST;
     $jsonDecode = json_decode($post['token']);
     $tokenId = $jsonDecode->id;
+    $amount = $post['amount'];
+    $name = $post['name'];
     
     $chargeObject = [
-        'amount' => 555555,
+        'amount' => $amount * 100,
         'currency' => 'mxn',
-        'description' => 'Que pex',
+        'description' => $name,
         'source' => $tokenId,
     ];
 
