@@ -8,6 +8,8 @@
     $customerId = $post["customerId"];
     $paymentMethodId = $post["paymentMethodId"];
     $priceId = $post["priceId"];
+    $code = $post["code"];
+
 
 
     try {
@@ -22,6 +24,7 @@
             print_r($customerJson);
       }
     
+      try{
     
       // Set the default payment method on the customer
       \Stripe\Customer::update($customerId, [
@@ -38,11 +41,17 @@
             'price' => $priceId,
           ],
         ],
+        'coupon' => $code,
         'expand' => ['latest_invoice.payment_intent'],
       ]);
 
     $suscriptionJson = json_encode($subscription);    
     print_r($suscriptionJson);
-   
+  
+      } catch (Exception $e) {
+        $customerJson = json_encode($e); 
+        print_r($customerJson);
+      }
+      
 
 ?>
